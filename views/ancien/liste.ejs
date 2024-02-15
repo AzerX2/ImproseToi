@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>
+    <%= title %>
+  </title>
+</head>
+
+<body>
+  <h1>
+    <%= title %>
+  </h1>
+  <ul>
+    <% for (let i=0; i < inscriptions.length; i++) { %>
+      <% if (inscriptions[i].atelier==="Atelier d'éloquence" ) { %>
+        <% if (i==30) { %>
+          <br>
+          Liste d'attente :
+          <% } %>
+            <% } %>
+              <% if (inscriptions[i].atelier==="Atelier d'improvisation tous niveaux" ||
+                inscriptions[i].atelier==="Atelier d'improvisation avancée" ) { %>
+                <% if (i==15) { %>
+                  <br>
+                  Liste d'attente :
+                  <% } %>
+                    <% } %>
+                      <li>
+                        <%= inscriptions[i].nom + " " + inscriptions[i].prenom %>
+                      </li>
+                      <% } %>
+  </ul>
+</body>
+
+</html>

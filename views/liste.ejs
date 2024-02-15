@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html style="font-size: 16px;" lang="fr">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="keywords"
+    content="​Lessons &amp;amp; Practice, ​Meet some of our partners!, ​Integrity. Uniqueness. Enjoyment. Ever Forward., ​Our Mission, Contact Us">
+  <meta name="description" content="Improse Toi association d'éloquence et d'improvisation">
+  <title>title</title>
+  <link rel="stylesheet" href="/styles/nicepage.css" media="screen">
+  <link rel="stylesheet" href="/styles/title.css" media="screen">
+  <link id="u-theme-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i|Open+Sans:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i">
+  <link id="u-page-google-font" rel="stylesheet"
+    href="https://fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i">
+
+
+
+
+  <script type="application/ld+json">{
+		"@context": "http://schema.org",
+		"@type": "Organization",
+		"name": "",
+		"logo": "images/improsetoi.png"
+}</script>
+  <meta name="theme-color" content="#4551dd">
+  <meta property="og:title" content="title">
+  <meta property="og:type" content="website">
+  <meta data-intl-tel-input-cdn-path="intlTelInput/">
+</head>
+
+<body data-path-to-root="./" data-include-products="false" class="u-body u-xl-mode" data-lang="fr">
+  <header class="u-clearfix u-header u-header" id="sec-fe69">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <a href="/" class="u-image u-logo u-image-1" data-image-width="305" data-image-height="305">
+        <img src="images/improsetoi.png" class="u-logo-image u-logo-image-1">
+      </a>
+    </div>
+  </header>
+  <section
+    class="u-align-center-sm u-align-center-xs u-align-right-lg u-align-right-md u-align-right-xl u-clearfix u-palette-1-base u-section-1"
+    id="sec-d422">
+    <div
+      class="u-clearfix u-sheet u-valign-middle-lg u-valign-middle-md u-valign-middle-sm u-valign-middle-xs u-sheet-1">
+      <div alt="" class="u-image u-image-circle u-image-1" data-image-width="305" data-image-height="305"
+        data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="250"></div>
+      <div
+        class="u-bottom-left-radius-19 u-container-align-left u-container-style u-group u-palette-1-base u-shape-round u-top-left-radius-19 u-group-1"
+        data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+        <div class="u-container-layout u-valign-middle-md u-valign-middle-sm u-container-layout-1">
+          <h1 class="u-align-left u-text u-text-body-alt-color u-text-default u-text-1">
+            <%= title %>
+          </h1>
+        </div>
+      </div>
+      <p class="u-align-right u-text u-text-body-alt-color u-text-default u-text-2" data-animation-name="fadeIn"
+        data-animation-duration="1000" data-animation-direction="Up" data-animation-delay="750">Improse Toi</p>
+    </div>
+  </section>
+  <section class="u-clearfix u-container-align-center u-palette-1-base u-section-2" id="carousel_b3ce">
+    <div class="u-clearfix u-sheet u-valign-middle-xl u-sheet-1">
+      <div class="data-layout-selected u-clearfix u-expanded-width u-layout-wrap u-layout-wrap-1">
+        <div class="u-layout">
+          <div class="u-layout-row">
+            <div
+              class="u-container-align-center-sm u-container-align-center-xs u-container-style u-layout-cell u-size-60 u-layout-cell-1"
+              data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500">
+              <div class="u-container-layout u-valign-middle u-container-layout-1">
+                <h3
+                  class="u-align-center-sm u-align-center-xs u-custom-font u-font-montserrat u-text u-text-default u-text-1"
+                  data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="750">
+                  <ul>
+                    <% for (let i=0; i < inscriptions.length; i++) { %>
+                      <% if (inscriptions[i].atelier==="Atelier d'éloquence" ) { %>
+                        <% if (i==30) { %>
+                          <br>
+                          Liste d'attente :
+                          <% } %>
+                            <% } %>
+                              <% if (inscriptions[i].atelier==="Atelier d'improvisation tous niveaux" ||
+                                inscriptions[i].atelier==="Atelier d'improvisation avancée" ) { %>
+                                <% if (i==15) { %>
+                                  <br>
+                                  Liste d'attente :
+                                  <% } %>
+                                    <% } %>
+                                      <li>
+                                        <%= inscriptions[i].nom + " " + inscriptions[i].prenom %>
+                                      </li>
+                                      <% } %>
+                  </ul>
+                </h3>
+                <a href="/"
+                  class="u-active-white u-align-center-sm u-align-center-xs u-align-left-lg u-align-left-md u-align-left-xl u-border-none u-btn u-btn-round u-button-style u-hover-feature u-hover-white u-palette-2-base u-radius-50 u-text-active-black u-text-hover-black u-text-palette-1-base u-btn-1"
+                  data-animation-name="" data-animation-duration="0" data-animation-delay="0"
+                  data-animation-direction="">Accueil </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+
+
+  <footer class="u-align-center u-clearfix u-footer u-grey-80 u-footer" id="sec-9c10">
+    <div class="u-clearfix u-sheet u-sheet-1">
+      <p class="u-small-text u-text u-text-variant u-text-1">Improse Toi - Tout droit réservé - 2024</p>
+    </div>
+  </footer>
+
+
+</body>
+
+</html>
