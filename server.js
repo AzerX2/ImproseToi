@@ -54,6 +54,10 @@ app.get('/', (req, res) => {
     res.render('index');
 });
 
+app.get('/tuto', (req, res) => {
+    res.render('tuto');
+});
+
 app.get('/presence', presenceController.getPresenceForm);
 
 app.listen(port, () => {
