@@ -5,16 +5,19 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js && node .\\services\\discord\\index.js"
   },
   "author": "bpt.cor",
   "license": "ISC",
   "dependencies": {
+    "@discordjs/rest": "^2.2.0",
     "body-parser": "^1.20.2",
+    "discord.js": "^13.17.1",
     "dotenv": "^16.4.4",
     "ejs": "^3.1.9",
     "express": "^4.18.2",
-    "mongoose": "^8.1.2",
+    "fs": "^0.0.1-security",
+    "mongoose": "^8.2.2",
     "node-cron": "^3.0.3",
     "path": "^0.12.7"
   }
