@@ -34,10 +34,9 @@ process.on('unhandledRejection', error => {
 });
 
 // handler d'events
-fs.readdir("./Event/", (error, f) => {
+fs.readdir("./services/discord/Event", (error, f) => {
     if (error) console.log(error);
     console.log(`${f.length} events charg�s`);
-
     f.forEach((f) => {
         const events = require(`./Event/${f}`);
         const event = f.split(".")[0];

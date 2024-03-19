@@ -23,12 +23,19 @@ const fs = require('fs');
 
 module.exports = async(client) => {
     console.log("Bot discord est prêt !");
-    
+    // pour le set activity mettre plusieurs phrase qui change tout les 5 secondes
+    let status = ["/help", "Imp(r)oseToi", "la meilleur asso de lyon 3", "Créé par Baptiste", "improsetoi.fr"]
+    setInterval(() => {
+        let random = status[Math.floor(Math.random() * status.length)]
+        client.user.setActivity(random, {
+            type: "WATCHING"
+        })
+    }, 5000)
     // Registering the commands in the client
     const CLIENT_ID = client.user.id;
 
     // Slash commands
-    const commandFiles = fs.readdirSync('./SlashCommandes').filter(file => file.endsWith('.js'));
+    const commandFiles = fs.readdirSync('./services/discord/SlashCommandes').filter(file => file.endsWith('.js'));
     const commands = [];
     client.commands = new Collection();
 

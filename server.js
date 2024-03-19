@@ -49,11 +49,21 @@ app.get('/list', (req, res) => {
 app.get('/inscription', (req, res) => {
     res.render('inscription');
 });
-
+/*
 app.get('/', (req, res) => {
     res.render('index');
 });
-
+*/
+let Event = require('./models/evenementModel');
+app.get('/', async (req, res) => {
+    try {
+        const event = await Event.find();
+        res.render('/', { event });
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Server error');
+    }
+});
 app.get('/tuto', (req, res) => {
     res.render('tuto');
 });

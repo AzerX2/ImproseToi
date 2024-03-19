@@ -145,27 +145,15 @@
     </section>
     <section class="u-clearfix u-container-align-center u-palette-1-base u-section-3" id="carousel_37b5">
       <h3 class="u-align-center u-text u-text-1">Evènement en cours </h3>
+      <!-- Depuis la db event on va afficher les évenements en cours (s'il y a 1 event dans la db on en affiche qu'un, s'il y en a 2 on en affiche 2 et s'il y en a 3 on en affiche 3, si la db est vide on mets rien) -->
       <div class="u-list u-list-1">
         <div class="u-repeater u-repeater-1">
-          <div class="u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-white u-list-item-1" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" data-animation-direction="">
+          <% events.forEach(event => { %>
+          <div class="u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-white u-list-item-1">
             <div class="u-container-layout u-similar-container u-container-layout-1">
-              <h6 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-default u-text-palette-1-base u-text-2">Event 1</h6>
-              <p class="u-align-left u-text u-text-grey-40 u-text-3">text</p>
+              <h6 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-default u-text-palette-1-base u-text-2"> <%= event.title %> </h6>
+              <p class="u-align-left u-text u-text-grey-40 u-text-3"> <%= event.description %> </p>
             </div>
-          </div>
-          <div class="u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-white u-list-item-2" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" data-animation-direction="">
-            <div class="u-container-layout u-similar-container u-container-layout-2">
-              <h6 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-default u-text-palette-1-base u-text-4">Event 2</h6>
-              <p class="u-align-left u-text u-text-grey-40 u-text-5">text</p>
-            </div>
-          </div>
-          <div class="u-container-style u-list-item u-radius-20 u-repeater-item u-shape-round u-video-cover u-white u-list-item-3" data-animation-name="customAnimationIn" data-animation-duration="1500" data-animation-delay="500" data-animation-direction="">
-            <div class="u-container-layout u-similar-container u-container-layout-3">
-              <h6 class="u-align-center u-custom-font u-font-ubuntu u-text u-text-default u-text-palette-1-base u-text-6">Event 3</h6>
-              <p class="u-align-left u-text u-text-grey-40 u-text-7">text</p>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
     <section class="u-clearfix u-container-align-center u-palette-1-base u-section-4" id="sec-298b" data-animation-name="" data-animation-duration="0" data-animation-delay="0" data-animation-direction="">

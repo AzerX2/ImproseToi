@@ -6,7 +6,6 @@
  * 
  * @description Cette fonction est appelée lorsque un utilisateur intéragit avec un bouton ou un menu déroulant.
  */
-const { MessageEmbed } = require('discord.js');
 
 module.exports = async(client, interaction) => {
 
