@@ -32,10 +32,10 @@ module.exports = {
             })
         }
         else {
-            let liste = " > "
+            let liste = ""
             for (let i = 0; i < inscrits.length; i++) {
                 if (inscrits[i].atelier != atelier) continue
-                liste += inscrits[i].pseudo + "\n > "
+                liste += " > " + inscrits[i].prenom + " " + inscrits[i].nom + "\n"
             }
             embed.addFields({
                 name: "Liste des inscrits sur l' " + atelier,

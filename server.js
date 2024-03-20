@@ -57,8 +57,8 @@ app.get('/', (req, res) => {
 let Event = require('./models/evenementModel');
 app.get('/', async (req, res) => {
     try {
-        const event = await Event.find();
-        res.render('/', { event });
+        const events = await Event.find();
+        res.render('index', { events });
     } catch (err) {
         console.error(err);
         res.status(500).send('Server error');

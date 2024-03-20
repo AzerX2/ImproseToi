@@ -19,7 +19,7 @@ module.exports = {
         let atelier = interaction.options.getString('atelier');
 
         if (atelier === 'improTN') {
-            let improvisationToutNiveau = require('../../../models/improvisationToutNiveauModel');
+            let improvisationToutNiveau = require('../../../models/improToutNiveauModel');
 
             // c'est géré par date, donc dans la base de donnée il y a pour chaque date, une liste de personne présente .participants
 
@@ -31,11 +31,17 @@ module.exports = {
                 .setColor("#00ff00")
                 .setTimestamp()
 
-            let liste = ""
+            let liste = "Bilan de présence sur l'atelier d'improvisation tout niveau\n\n"
             if (BilanImpro.length != 0) {
                 
                 for (let i = 0; i < BilanImpro.length; i++) {
-                    liste += BilanImpro[i].date + " : " + BilanImpro[i].participants + "\n"
+                    let participants = ""
+                    for (let j = 0; j < BilanImpro[i].participants.length; j++) {
+
+                        participants += BilanImpro[i].participants[j] + "\n"
+                    }
+
+                    liste += BilanImpro[i].date.toISOString().split("T")[0] + " : \n" + participants + "\n\n"
                 }
             }
             fs.writeFile('BilanImproTN.txt', liste, (err) => {
@@ -68,11 +74,17 @@ module.exports = {
                 .setColor("#00ff00")
                 .setTimestamp()
 
-            let liste = ""
+            let liste = "Bilan de présence sur l'atelier d'éloquence\n\n"
 
             if (BilanEloquence.length != 0) {
                 for (let i = 0; i < BilanEloquence.length; i++) {
-                    liste += BilanEloquence[i].date + " : " + BilanEloquence[i].participants + "\n"
+                    let participants = ""
+                    for (let j = 0; j < BilanEloquence[i].participants.length; j++) {
+
+                        participants += BilanEloquence[i].participants[j] + "\n"
+                    }
+
+                    liste += BilanEloquence[i].date.toISOString().split("T")[0] + " : \n" + participants + "\n\n"
                 }
             }
 
@@ -95,7 +107,7 @@ module.exports = {
         }
         else if (atelier === 'improA') {
 
-            let improvisationAvance = require('../../../models/improvisationAvanceModel');
+            let improvisationAvance = require('../../../models/improAvanceModel');
 
             let BilanImproAvance = await improvisationAvance.find({}).exec();
 
@@ -105,11 +117,17 @@ module.exports = {
                 .setColor("#00ff00")
                 .setTimestamp()
 
-            let liste = ""
+            let liste = "Bilan de présence sur l'atelier d'improvisation avancé\n\n"
 
             if (BilanImproAvance.length != 0) {
                 for (let i = 0; i < BilanImproAvance.length; i++) {
-                    liste += BilanImproAvance[i].date + " : " + BilanImproAvance[i].participants + "\n"
+                    let participants = ""
+                    for (let j = 0; j < BilanImproAvance[i].participants.length; j++) {
+
+                        participants += BilanImproAvance[i].participants[j] + "\n"
+                    }
+
+                    liste += BilanImproAvance[i].date.toISOString().split("T")[0] + " : \n" + participants + "\n\n"
                 }
             }
 

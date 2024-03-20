@@ -103,7 +103,7 @@ module.exports = {
             let evenements = await evenement.find({}).exec()
             let embed = new MessageEmbed()
                 .setTitle("Evenements")
-                .setDescription("Liste des evenements")
+                
                 .setColor("#00ff00")
                 .setTimestamp()
 
@@ -113,10 +113,10 @@ module.exports = {
                     liste += evenements[i].titre + " : " + evenements[i].description + "\n"
                 }
             }
-            embed.addFields({
-                name: "Liste des evenements",
-                value: liste
-            })
+            if (liste === "") {
+                liste = "Aucun evenement"
+            }
+            embed.setDescription("Liste des evenements\n\n" + liste)
 
             await interaction.reply({ embeds: [embed] })
         }
