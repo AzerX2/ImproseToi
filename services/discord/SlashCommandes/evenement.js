@@ -34,6 +34,11 @@ module.exports = {
                         .setDescription('La description de l\'évenement')
                         .setRequired(true)
                 )
+                .addStringOption(option =>
+                    option.setName('endDate')
+                        .setDescription('date Fin évenement (forme: ANNEE-MOIS-JOURTHEURE:MINUTE:SECONDE ex: 1995-12-17T03:24:00)')
+                        .setRequired(true)
+                )
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -59,6 +64,11 @@ module.exports = {
                         .setDescription('La description de l\'évenement')
                         .setRequired(true)
                 )
+                .addStringOption(option =>
+                    option.setName('endDate')
+                        .setDescription('date Fin évenement (forme: ANNEE-MOIS-JOURTHEURE:MINUTE:SECONDE ex: 1995-12-17T03:24:00)')
+                        .setRequired(true)
+                )
         )
         .addSubcommand(subcommand =>
             subcommand
@@ -71,11 +81,13 @@ module.exports = {
         let sousCommande = interaction.options.getSubcommand()
         let titre = interaction.options.getString('titre')
         let description = interaction.options.getString('description')
+        let endDate = interaction.options.getString('endDate')
 
         if (sousCommande === 'ajouter') {
             let newEvenement = new evenement({
                 titre: titre,
-                description: description
+                description: description,
+                endDate: endDate
             })
 
             newEvenement.save()
@@ -91,7 +103,7 @@ module.exports = {
             }
         }
         else if (sousCommande === 'modifier') {
-            let evenementModifier = await evenement.findOneAndUpdate({ titre: titre }, { description: description }).exec()
+            let evenementModifier = await evenement.findOneAndUpdate({ titre: titre }, { description: description }, { endDate: endDate}).exec()
             if (evenementModifier) {
                 await interaction.reply({ content: 'Evenement modifié', ephemeral: true })
             }

@@ -21,6 +21,18 @@ const {
 } = require('discord-api-types/v9');
 const fs = require('fs');
 
+async function checkEvent(){
+    let evenement = require('../../../models/evenementModel')
+    let evenements = await evenement.find({}).exec()
+
+    evenements.forEach(ev => {
+        let dateev = new Date(ev.endDate)
+        if (Date.now() > dateev){
+            evenement.findOneAndDelete({titre: ev.titre})
+        }
+    })
+}
+
 module.exports = async(client) => {
     console.log("Bot discord est prêt !");
     // pour le set activity mettre plusieurs phrase qui change tout les 5 secondes
@@ -31,6 +43,11 @@ module.exports = async(client) => {
             type: "WATCHING"
         })
     }, 5000)
+
+    setInterval(() => {
+        checkEvent()
+    }, 86400)
+
     // Registering the commands in the client
     const CLIENT_ID = client.user.id;
 
