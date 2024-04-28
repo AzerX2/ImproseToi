@@ -26,6 +26,7 @@ async function checkEvent(){
     let evenements = await evenement.find({}).exec()
 
     evenements.forEach(ev => {
+        if (ev.endDate === null) return
         let dateev = new Date(ev.endDate)
         if (Date.now() > dateev){
             evenement.findOneAndDelete({titre: ev.titre})
