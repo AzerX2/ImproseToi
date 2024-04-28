@@ -35,7 +35,7 @@ module.exports = {
                         .setRequired(true)
                 )
                 .addStringOption(option =>
-                    option.setName('endDate')
+                    option.setName('enddate')
                         .setDescription('date Fin évenement (forme: ANNEE-MOIS-JOURTHEURE:MINUTE:SECONDE ex: 1995-12-17T03:24:00)')
                         .setRequired(true)
                 )
@@ -65,7 +65,7 @@ module.exports = {
                         .setRequired(true)
                 )
                 .addStringOption(option =>
-                    option.setName('endDate')
+                    option.setName('enddate')
                         .setDescription('date Fin évenement (forme: ANNEE-MOIS-JOURTHEURE:MINUTE:SECONDE ex: 1995-12-17T03:24:00)')
                         .setRequired(true)
                 )
@@ -81,7 +81,7 @@ module.exports = {
         let sousCommande = interaction.options.getSubcommand()
         let titre = interaction.options.getString('titre')
         let description = interaction.options.getString('description')
-        let endDate = interaction.options.getString('endDate')
+        let endDate = interaction.options.getString('enddate')
 
         if (sousCommande === 'ajouter') {
             let newEvenement = new evenement({
