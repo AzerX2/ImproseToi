@@ -8,9 +8,9 @@ exports.getDesinscriptionPage = (req, res) => {
 
 // Fonction pour gérer la désinscription
 exports.postDesinscription = (req, res) => {
-    const { atelier, nom, prenom } = req.body;
+    const { atelier, nom, prenom, mail } = req.body;
 
-    Inscription.findOneAndDelete({ atelier: atelier, nom: nom, prenom: prenom })
+    Inscription.findOneAndDelete({ atelier: atelier, nom: nom, prenom: prenom, mail: mail })
         .then(() => {
             const message = "Désinscription réussie.";
             res.render('message', { message });

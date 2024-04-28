@@ -38,17 +38,17 @@ exports.getListeEloquence = (req, res) => {
 
 // Inscription à un atelier (dans la bdd)
 exports.postInscription = (req, res) => {
-    const { atelier, nom, prenom } = req.body;
+    const { atelier, nom, prenom, mail } = req.body;
     // on regarde s'il est déjà inscrit
     // si oui, on renvoie un message d'erreur
     // sinon, on l'inscrit
-    Inscription.findOne({ atelier: atelier, nom: nom, prenom: prenom })
+    Inscription.findOne({ atelier: atelier, nom: nom, prenom: prenom, mail: mail })
         .then(existingInscription => {
             if (existingInscription) {
                 const message = "Vous êtes déjà inscrit à cet atelier.";
                 res.render('message', { message });
             } else {
-                const newInscription = new Inscription({ atelier, nom, prenom });
+                const newInscription = new Inscription({ atelier, nom, prenom, mail });
                 newInscription.save()
                     .then(() => {
                         const message = "Inscription réussie ! Merci de votre participation.";
