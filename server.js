@@ -67,8 +67,13 @@ app.get('/', async (req, res) => {
 app.get('/tuto', (req, res) => {
     res.render('tuto');
 });
+
 app.get('/mention', (req, res) => {
     res.render('mention');
+});
+
+app.get('/documentation', (req, res) => {
+    res.render('documentation');
 });
 
 app.get('/presence', presenceController.getPresenceForm);
