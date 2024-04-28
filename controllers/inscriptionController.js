@@ -1,10 +1,25 @@
 const Inscription = require('../models/inscriptionModel');
 
-// Afficher la page d'inscription à l'atelier d'improvisation avancée
-exports.getListeImproAvancee = (req, res) => {
-    Inscription.find({ atelier: 'Atelier d\'improvisation avancée' })
+// Afficher la liste des inscrits pour un atelier donné
+exports.getListe = (req, res) => {
+    let { atelier } = req.params;
+    switch (atelier) {
+        case 'impro-avancee':
+            atelier = 'Atelier d\'improvisation avancée';
+            break;
+        case 'impro-tous-niveaux':
+            atelier = 'Atelier d\'improvisation tous niveaux';
+            break;
+        case 'eloquence':
+            atelier = 'Atelier d\'éloquence';
+            break;
+        default:
+            return res.status(400).send('Atelier non valide');
+    }
+
+    Inscription.find({ atelier: atelier })
         .then(inscriptions => {
-            res.render('liste', { title: 'Liste des inscrits - Improvisation Avancée', inscriptions });
+            res.render('liste', { title: `Liste des inscrits - ${atelier}`, inscriptions });
         })
         .catch(err => {
             console.error(err);
@@ -12,29 +27,6 @@ exports.getListeImproAvancee = (req, res) => {
         });
 };
 
-// Afficher la liste des inscrits à l'atelier d'improvisation tous niveaux
-exports.getListeImproTousNiveaux = (req, res) => {
-    Inscription.find({ atelier: 'Atelier d\'improvisation tous niveaux' })
-        .then(inscriptions => {
-            res.render('liste', { title: 'Liste des inscrits - Improvisation Tous Niveaux', inscriptions });
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).send('Erreur lors de la récupération de la liste des inscrits');
-        });
-};
-
-// Afficher la liste des inscrits à l'atelier d'éloquence
-exports.getListeEloquence = (req, res) => {
-    Inscription.find({ atelier: 'Atelier d\'éloquence' })
-        .then(inscriptions => {
-            res.render('liste', { title: 'Liste des inscrits - Éloquence', inscriptions });
-        })
-        .catch(err => {
-            console.error(err);
-            res.status(500).send('Erreur lors de la récupération de la liste des inscrits');
-        });
-};
 
 // Inscription à un atelier (dans la bdd)
 exports.postInscription = (req, res) => {

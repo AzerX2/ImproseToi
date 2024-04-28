@@ -21,14 +21,9 @@ app.use(express.json());
 app.post('/inscription', inscriptionController.postInscription);
 app.post('/presence', presenceController.postPresence);
 
-// Route pour afficher la liste des inscrits pour l'atelier d'improvisation avancée
-app.get('/liste/impro-avancee', inscriptionController.getListeImproAvancee);
+// Route pour afficher la liste des inscrits à un atelier
+app.get('/liste/:atelier', inscriptionController.getListe);
 
-// Route pour afficher la liste des inscrits pour l'atelier d'improvisation tous niveaux
-app.get('/liste/impro-tous-niveaux', inscriptionController.getListeImproTousNiveaux);
-
-// Route pour afficher la liste des inscrits pour l'atelier d'éloquence
-app.get('/liste/eloquence', inscriptionController.getListeEloquence);
 
 const desinscriptionController = require('./controllers/desinscriptionController');
 
@@ -43,7 +38,7 @@ app.post('/desinscription', desinscriptionController.postDesinscription);
 app.set('view engine', 'ejs');
 
 app.get('/list', (req, res) => {
-    res.render('list');
+    res.render('liste-atelier');
 });
 
 app.get('/inscription', (req, res) => {
