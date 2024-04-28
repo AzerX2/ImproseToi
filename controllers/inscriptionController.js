@@ -48,7 +48,7 @@ exports.postInscription = (req, res) => {
                     })
                     .catch(err => {
                         console.error(err);
-                        res.status(500).send('Erreur lors de l\'enregistrement de l\'inscription.');
+                        res.status(500).send('Erreur lors de l\'enregistrement de l\'inscription. Si le problème persiste, envoyer un mail à contact@improsetoi.fr.');
                     });
             }
         })

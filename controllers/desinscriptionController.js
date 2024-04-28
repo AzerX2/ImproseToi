@@ -17,6 +17,6 @@ exports.postDesinscription = (req, res) => {
         })
         .catch(err => {
             console.error(err);
-            res.status(500).send('Erreur lors de la désinscription');
+            res.status(500).send('Erreur lors de la désinscription. Si le problème persiste, envoyer un mail à contact@improsetoi.fr.');
         });
 };
